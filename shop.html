@@ -58,6 +58,28 @@
                     </li>
                 </ul>
             </div>
+            <div class="navbar align-self-center d-flex gap-3">
+                    <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="inputMobileSearch" placeholder="Buscar ...">
+                            <div class="input-group-text">
+                                <i class="fa fa-fw fa-search"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
+                        <i class="fa fa-fw fa-search text-dark mr-2"></i>
+                    </a>
+                    <a class="nav-icon position-relative text-decoration-none" href="#">
+                        <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">0</span>
+                    </a>
+                    <a class="nav-icon position-relative text-decoration-none" href="#">
+                        <i class="fa fa-fw fa-user text-dark mr-3"></i>
+                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+9</span>
+                    </a>
+                </div>
+            </div>
         </div>
     </nav>
     <!--Fin menu-->
@@ -148,7 +170,7 @@
                         </ul>
                         <hr>
                         <!--Precio total-->
-                        <p class="text-right">Total: $ <span id="total"></span></p>
+                        <p class="text-right">Total:  <span id="total"></span></p>
                         <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
                         <button id="boton-pagar" class="btn btn-info">Pagar</button>
                     </aside>
@@ -199,6 +221,7 @@
                             <li><a href="contacto.html" class="text-decoration-none text-light">Contacto</a></li>
                         </ul>
                     </div>
+                    
                 </div>
             
             <div class="row text-light mb-4">

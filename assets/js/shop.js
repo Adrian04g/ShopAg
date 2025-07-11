@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const DOMtotal = document.querySelector('#total');
     const DOMbotonVaciar = document.querySelector('#boton-vaciar');
     const DOMbotonPagar = document.querySelector('#boton-pagar');
+    const DOMcarritoIcono = document.querySelector('.fa-cart-arrow-down').parentElement.querySelector('span');
 
     function renderizarProductos() {
         BaseDeDatos.forEach((info) => {
@@ -63,6 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         carrito.push(parseInt(evento.target.dataset.id));
         renderizarCarrito();
         calcularTotal();
+        actualizarContadorCarrito();
     }
 
     function renderizarCarrito() {
@@ -93,6 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
         carrito = carrito.filter((carritoId) => carritoId !== id);
         renderizarCarrito();
         calcularTotal();
+        actualizarContadorCarrito();
     }
 
     function calcularTotal() {
@@ -101,17 +104,23 @@ document.addEventListener('DOMContentLoaded', () => {
             const miItem = BaseDeDatos.find((producto) => producto.id === item);
             total += miItem.precio;
         });
-        // Formatear el total con puntos de miles y millones
-        DOMtotal.textContent = total.toLocaleString('es-CO');
+        // Mostrar el total con el símbolo y formato de miles
+        DOMtotal.textContent = `${divisa} ${total.toLocaleString('es-CO')}`;
+    }
+
+    function actualizarContadorCarrito() {
+        DOMcarritoIcono.textContent = carrito.length;
     }
 
     DOMbotonVaciar.addEventListener('click', () => {
         carrito = [];
         renderizarCarrito();
         calcularTotal();
+        actualizarContadorCarrito();
     });
 
     renderizarProductos();
     renderizarCarrito();
     calcularTotal();
+    actualizarContadorCarrito();
 });
