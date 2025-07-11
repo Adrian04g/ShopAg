@@ -7,19 +7,22 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 1,
             nombre: 'Hamacas',
             precio: 120000,
-            imagen: 'assets/img/category_img_02.jpg'
+            imagen: 'assets/img/category_img_02.jpg',
+            categoria: 'Hamacas'
         },
         {
             id: 2,
             nombre: 'Sombreros',
             precio: 250000,
-            imagen: 'assets/img/feature_prod_01.jpg'
+            imagen: 'assets/img/feature_prod_01.jpg',
+            categoria: 'Sombreros'
         },
         {
             id: 3,
             nombre: 'Bolsos',
             precio: 150000,
-            imagen: 'assets/img/shop_03.jpg'
+            imagen: 'assets/img/shop_03.jpg',
+            categoria: 'Bolsos'
         }
     ];
     let carrito = [];
