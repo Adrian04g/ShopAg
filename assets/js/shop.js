@@ -25,7 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
             categoria: 'Bolsos'
         }
     ];
-    let carrito = [];
+    // Leer el carrito desde localStorage si existe
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
     const divisa = '$';
     const DOMitems = document.querySelector('#items .row');
     const DOMcarrito = document.querySelector('#Carrito');
@@ -74,6 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function agregarProductoAlCarrito(evento) {
         carrito.push(parseInt(evento.target.dataset.id));
+        guardarCarrito();
         renderizarCarrito();
         calcularTotal();
         actualizarContadorCarrito();
@@ -105,6 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function eliminarItemCarrito(evento) {
         const id = parseInt(evento.target.dataset.item);
         carrito = carrito.filter((carritoId) => carritoId !== id);
+        guardarCarrito();
         renderizarCarrito();
         calcularTotal();
         actualizarContadorCarrito();
@@ -126,6 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     DOMbotonVaciar.addEventListener('click', () => {
         carrito = [];
+        guardarCarrito();
         renderizarCarrito();
         calcularTotal();
         actualizarContadorCarrito();
@@ -139,4 +143,9 @@ document.addEventListener('DOMContentLoaded', () => {
     renderizarCarrito();
     calcularTotal();
     actualizarContadorCarrito();
+
+    // Guardar el carrito en localStorage
+    function guardarCarrito() {
+        localStorage.setItem('carrito', JSON.stringify(carrito));
+    }
 });
